@@ -8,7 +8,9 @@ module.exports = {
     filename: 'index.js'
   },
   plugins: [
-    new Dotenv()
+    new Dotenv({
+      systemvars: true
+    })
   ],
   module: {
     rules: [
