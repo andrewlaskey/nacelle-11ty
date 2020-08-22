@@ -1,5 +1,23 @@
 ---
 layout: layouts/base.njk
-title: Title Strings
+title: Nacelle + Eleventy
 ---
-<h1>This is global data: {{siteData.name}}</h1>
+<h1>{{siteData.name}}</h1>
+
+<p>An experiment using
+  <a href="https://getnacelle.com/" target="_blank">Nacelle Client SDK</a>,
+  <a href="https://www.11ty.dev/" target="_blank">11ty</a>, and vanilla js.</p>
+
+<p>
+  <a href="{{ siteData.github }}" target="_blank">View source on Github</a>
+</p>
+
+<h3>Products</h3>
+
+<ul>
+  {% for product in products %}
+    <li>
+      <a href="/products/{{ product.handle}}/">{{ product.title}}</a>
+    </li>
+  {% endfor %}
+</ul>
