@@ -14,6 +14,8 @@ const cart = cartLocalStorage ? JSON.parse(cartLocalStorage) : []
 const addToCartButton = document.querySelector('.add-to-cart')
 const checkoutButton = document.querySelector('.checkout')
 const cartEl = document.querySelector('.cart')
+const cartItemsEl = document.querySelector('.cart-items')
+const cartToggleButtons = document.querySelectorAll('.toggle-cart')
 
 const loadCart = function() {
   const html = cart.map(item => {
@@ -26,7 +28,7 @@ const loadCart = function() {
     `
   }).join('')
 
-  cartEl.innerHTML = html
+  cartItemsEl.innerHTML = html
 }
 
 const updateCart = function () {
@@ -64,7 +66,7 @@ checkoutButton.addEventListener('click', () => {
 })
 
 // Remove Item From Cart
-cartEl.addEventListener('click', (e) => {
+cartItemsEl.addEventListener('click', (e) => {
   if (e.target.classList.contains('remove-item')) {
     console.log('Remove Item')
     const button = e.target
@@ -97,5 +99,12 @@ if (addToCartButton) {
 
     cart.push(cartProduct)
     updateCart()
+    cartEl.classList.toggle('is-open')
   })
 }
+
+cartToggleButtons.forEach(el => {
+  el.addEventListener('click', () => {
+    cartEl.classList.toggle('is-open')
+  })
+})

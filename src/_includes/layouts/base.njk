@@ -14,11 +14,16 @@
     <link rel="stylesheet" href="/styles/index.css">
   </head>
   <body id="top" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+    <div class="menu">
+      <a href="/">{{siteData.name}}</a>
+      <button class="toggle-cart">Cart</button>
+    </div>
     <div class="main">
       {{ content | safe }}
     </div>
-    <div class="menu">
-      <div class="cart"></div>
+    <div class="cart">
+      <button class="toggle-cart">X</button>
+      <div class="cart-items"></div>
       <button class="checkout">CHECKOUT</button>
     </div>
     <script src="/scripts/index.js"></script>
