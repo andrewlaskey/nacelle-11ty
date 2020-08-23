@@ -9,13 +9,19 @@ permalink: "products/{{ product.handle }}/"
 
 <h1>{{ product.title }}</h1>
 
-<p>{{ product.description }}</p>
+<div class="product">
+  <figure class="product-img">
+    <img src="{{ product.featuredMedia.src }}" alt="{{ product.featuredMedia.altText }}"/>
+  </figure>
 
-<p>
-  <strong>${{ product.priceRange.max }}</strong>
-</p>
-
-<button class="add-to-cart">Add To Cart</button>
+  <div class="product-details">
+    <p>{{ product.description }}</p>
+    <p>
+      <strong>${{ product.priceRange.max }}</strong>
+    </p>
+    <button class="add-to-cart">Add To Cart</button>
+  </div>
+</div>
 
 <script>
   window.product = {{ product | dump | safe }}

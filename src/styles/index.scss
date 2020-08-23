@@ -59,3 +59,23 @@ body {
   color: $white;
   font-weight: bold;
 }
+
+.product-img img {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .product {
+    display: flex;
+    align-items: center;
+  }
+
+  .product-img {
+    flex-shrink: 0;
+    width: 33.333%;
+  }
+
+  .product-details {
+    flex-grow: 1;
+  }
+}
